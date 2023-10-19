@@ -1,0 +1,37 @@
+.btn {
+  appearance: none;
+  display: block;
+  padding: 1rem 2rem;
+  background-color: none;
+  border: none;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.1s linear;  
+}
+
+.btn-primary {
+  @extend .btn;
+  background-color: var(--black);
+  color: var(--white);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-secondary {
+  @extend .btn;
+  border: 1px solid var(--black);
+  color: var(--black);
+
+  &:hover {
+    color: var(--white);
+    background-color: var(--black);
+  }
+}
+
+.btn_wrapper {
+  display: flex;
+  gap: 2rem;
+}

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+@import './vars';
+@import './default';
+@import './components/header';
+@import './components/works';
+@import './components/stack';
+@import './components/contacts';
+@import './components/about';
+@import './components/intro';
+@import './components/btn';
+@import './components/imageView';
+
+body {
+  background-color: var(--white);
+
+  &.load {
+    overflow: hidden;
+
+    .loading {
+      top: 0;
+    }
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100dvw;
+  height: 100lvh;
+  display: flex;
+  z-index: 2000;
+  background-color: var(--white);
+  justify-content: center;
+  align-items: center;
+  transform-origin: bottom center;
+  transition: top 0.5s ease-in-out;
+  overflow: hidden;
+  top: 100lvh;
+
+  &__spinner {
+    animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite forwards;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: 1rem dashed var(--black);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.lang {
+  width: 8rem;
+  height: 4rem;
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  box-shadow: 0 4px 8px #33333350;
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+  border-radius: 4px;
+  z-index: 1000;
+  
+  &__switch {
+    z-index: 50;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  &__item {
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    &:last-child {
+      color: var(--white);
+    }
+  }
+
+  &__current {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--black);
+  }
+
+  &.on {
+    .lang__current {
+      left: 0;
+    }
+
+    .lang__item {
+      color: var(--white);
+  
+      &:last-child {
+        color: var(--black);
+      }
+    }
+  }
+}
